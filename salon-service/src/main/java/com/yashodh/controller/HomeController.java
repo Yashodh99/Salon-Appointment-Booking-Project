@@ -1,4 +1,4 @@
-package com.yashodh.salon.service.controller;
+package com.yashodh.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

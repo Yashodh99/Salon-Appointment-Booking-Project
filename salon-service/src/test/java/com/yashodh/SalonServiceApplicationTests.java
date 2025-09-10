@@ -1,4 +1,4 @@
-package com.yashodh.salon.service;
+package com.yashodh;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
