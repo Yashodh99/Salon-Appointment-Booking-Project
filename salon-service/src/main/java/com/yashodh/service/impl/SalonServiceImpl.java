@@ -36,24 +36,33 @@ public class SalonServiceImpl implements SalonService {
     }
 
     @Override
-    public Salon updateSalon(SalonDTO salon, UserDTO user, Long salonId) {
+    public Salon updateSalon(SalonDTO salon, UserDTO user, Long salonId) throws Exception {
 
         Salon existingSalon = salonRepository.findById(salonId).orElse(null);
-        if(existingSalon != null && salon.getOwnerId().equals(user.getId())){
-            existingSalon.setName(salon.getName());
-            existingSalon.setAddress(salon.getAddress());
-            existingSalon.setEmail(salon.getEmail());
-            existingSalon.setCity(salon.getCity());
-            existingSalon.setImages(salon.getImages());
-            existingSalon.setOwnerId(salon.getOwnerId());
-            existingSalon.setOpenTime(salon.getOpenTime());
-            existingSalon.setCloseTime(salon.getCloseTime());
-            existingSalon.setPhoneNumber(salon.getPhoneNumber());
 
+        if (existingSalon == null) {
+            throw new Exception("Salon does not exist");
         }
 
-        return null;
+        // Check if logged-in user is the owner
+        if (!existingSalon.getOwnerId().equals(user.getId())) {
+            throw new Exception("You don't have permission to update this salon");
+        }
+
+        existingSalon.setName(salon.getName());
+        existingSalon.setAddress(salon.getAddress());
+        existingSalon.setEmail(salon.getEmail());
+        existingSalon.setCity(salon.getCity());
+        existingSalon.setImages(salon.getImages());
+        existingSalon.setOpenTime(salon.getOpenTime());
+        existingSalon.setCloseTime(salon.getCloseTime());
+        existingSalon.setPhoneNumber(salon.getPhoneNumber());
+
+        return salonRepository.save(existingSalon);
     }
+
+
+
 
     @Override
     public List<Salon> getAllSalons() {

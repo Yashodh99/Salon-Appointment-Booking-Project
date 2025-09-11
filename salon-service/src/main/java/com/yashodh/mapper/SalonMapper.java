@@ -12,14 +12,14 @@ public class SalonMapper {
         salonDTO.setId(salon.getId());
 
         salonDTO.setName(salon.getName());
-        salonDTO.setAddress(salonDTO.getAddress());
-        salon.setEmail(salonDTO.getEmail());
-        salon.setCity(salonDTO.getCity());
-        salon.setImages(salonDTO.getImages());
-        salon.setOwnerId(salonDTO.getOwnerId());
-        salon.setOpenTime(salonDTO.getOpenTime());
-        salon.setCloseTime(salonDTO.getCloseTime());
-        salon.setPhoneNumber(salonDTO.getPhoneNumber());
+        salonDTO.setAddress(salon.getAddress());
+        salonDTO.setEmail(salon.getEmail());
+        salonDTO.setCity(salon.getCity());
+        salonDTO.setImages(salon.getImages());
+        salonDTO.setOwnerId(salon.getOwnerId());
+        salonDTO.setOpenTime(salon.getOpenTime());
+        salonDTO.setCloseTime(salon.getCloseTime());
+        salonDTO.setPhoneNumber(salon.getPhoneNumber());
         return salonDTO;
     }
 }

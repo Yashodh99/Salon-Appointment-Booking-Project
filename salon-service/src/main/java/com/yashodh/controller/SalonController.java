@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
+
 
 @RestController
 @RequestMapping("/api/salon")
@@ -36,13 +36,14 @@ public class SalonController {
     }
 
 
-    @PatchMapping("/{salonId}")
-    public ResponseEntity<SalonDTO> updateSalon
-            (@PathVariable ("salonId") Long salonId,
+    @PutMapping("/{salonId}")
+    public ResponseEntity<SalonDTO> updateSalon(
+                    @PathVariable Long salonId,
                     @RequestBody SalonDTO salonDTO) throws Exception{
 
         UserDTO userDTO = new UserDTO();
         userDTO.setId(1L);
+
         Salon salon = salonService.updateSalon(salonDTO,userDTO,salonId);
         SalonDTO salonDTO1 = SalonMapper.mapToDTO(salon);
         return ResponseEntity.ok(salonDTO1);
@@ -52,8 +53,7 @@ public class SalonController {
 
     @GetMapping()
     public ResponseEntity<List<SalonDTO>> getSalons() throws Exception{
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(1L);
+
         List<Salon> salons = salonService.getAllSalons();
 
         List<SalonDTO> salonDTOS = salons.stream().map((salon)->
@@ -72,8 +72,7 @@ public class SalonController {
 
     @GetMapping("/{salonId}")
     public ResponseEntity<SalonDTO> getSalonById(@PathVariable Long salonId) throws Exception {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(1L);
+
 
         Salon salon = salonService.getSalonById(salonId);
 
@@ -86,8 +85,8 @@ public class SalonController {
 
     @GetMapping("/search")
     public ResponseEntity<List<SalonDTO>> searchSalons(@RequestParam("city") String city) throws Exception{
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(1L);
+
+
         List<Salon> salons = salonService.searchSalonByCity(city);
 
         List<SalonDTO> salonDTOS = salons.stream().map((salon)->
@@ -103,7 +102,18 @@ public class SalonController {
     }
 
 
+    @GetMapping("/owner")
+    public ResponseEntity<SalonDTO> getSalonByOwnerId(@PathVariable Long salonId) throws Exception {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(1L);
 
+        Salon salon = salonService.getSalonByOwnerId(userDTO.getId());
+
+        SalonDTO salonDTO = SalonMapper.mapToDTO(salon);
+
+        return ResponseEntity.ok(salonDTO);
+
+    }
 
 
 
