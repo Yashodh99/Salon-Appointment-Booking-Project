@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="950e7889-2b5b-4b4f-9e66-1768b06d20e8" name="Changes" comment="Added Category Microservices to the folder structure">
-      <change afterPath="$PROJECT_DIR$/category-service/src/main/java/com/yashodh/model/Category.java" afterDir="false" />
+    <list default="true" id="950e7889-2b5b-4b4f-9e66-1768b06d20e8" name="Changes" comment="Added category model">
+      <change afterPath="$PROJECT_DIR$/category-service/src/main/java/com/yashodh/repository/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/category-service/src/main/java/com/yashodh/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/category-service/src/main/java/com/yashodh/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/category-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,11 +19,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -81,11 +86,20 @@
       <option name="project" value="LOCAL" />
       <updated>1757606910286</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added category model">
+      <option name="closed" value="true" />
+      <created>1757700457060</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757700457060</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Category Microservices to the folder structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Category Microservices to the folder structure" />
+    <MESSAGE value="Added category model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added category model" />
   </component>
 </project>
